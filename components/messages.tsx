@@ -148,9 +148,9 @@ const Messages: React.FC<MessagesProps> = ({
           <div key={`${messageIndex}-${partIndex}-text`}>
             <div className="flex items-center justify-between mt-5 mb-2">
               <div className="flex items-center gap-2">
-                <Image src="/scira.png" alt="Scira" className='size-6 invert dark:invert-0' width={100} height={100} unoptimized quality={100} />
+                <Image src="/figure.png" alt="Figure" className='size-6 invert dark:invert-0' width={100} height={100} unoptimized quality={100} />
                 <h2 className="text-lg font-semibold font-syne text-neutral-800 dark:text-neutral-200">
-                  Scira AI
+                  Figure
                 </h2>
               </div>
               {status === 'ready' && (

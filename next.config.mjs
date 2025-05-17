@@ -38,13 +38,8 @@ const nextConfig = {
     async redirects() {
         return [
             {
-                source: '/ph',
-                destination: 'https://www.producthunt.com/posts/scira',
-                permanent: true,
-            },
-            {
-                source: '/raycast',
-                destination: 'https://www.raycast.com/zaidmukaddam/scira',
+                source: '/github',
+                destination: 'https://github.com/TotoB12/Figure',
                 permanent: true,
             }
         ]

@@ -1,6 +1,6 @@
-# Scira
+# Figure
 
-![Scira](/app/opengraph-image.png)
+![Figure](/app/opengraph-image.png)
 
 A minimalistic AI-powered search engine that helps you find information on the internet.
 
@@ -20,21 +20,6 @@ A minimalistic AI-powered search engine that helps you find information on the i
 - [Vercel AI SDK](https://sdk.vercel.ai/docs) - For AI model integration and streaming
 - [Tavily AI](https://tavily.com) - For search grounding and web search capabilities
 
-## Special Thanks
-
-<div align="center" markdown="1">
-
-  [![Warp](https://github.com/user-attachments/assets/2bda420d-4211-4900-a37e-e3c7056d799c)](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=scira)<br>
-  ### **[Warp, the intelligent terminal](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=scira)**<br>
-  [Available for MacOS, Linux, & Windows](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=scira)<br>
-  [Visit warp.dev to learn more](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=scira)
-
-  [![NinjaTools](https://bakrqvdfyriopfzffskk.supabase.co/storage/v1/object/sign/ads/Ninja%20Tools%20AD.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhZHMvTmluamEgVG9vbHMgQUQucG5nIiwiaWF0IjoxNzQyNzExMTMwLCJleHAiOjEwMzgyNzExMTMwfQ.eTY4DXSEXe61I7-Jk0nK8rimSLAETqfp5mEO5MpsH00)](https://ninjatools.ai/?ref=scria)<br>
-  ### **[NinjaTools, the All in one AI assistant and workspace](https://ninjatools.ai/?ref=scria)**<br>
-  [Visit Ninjatools.ai to learn more](https://ninjatools.ai/?ref=scria)
-  
-</div>
-
 ## Features
 
 - **AI-powered search**: Get answers to your questions using Anthropic's Models.
@@ -51,10 +36,8 @@ A minimalistic AI-powered search engine that helps you find information on the i
 - **Movie or TV Show Search**: Get information about any movie or TV show.
 
 ## LLM used
-- [xAI's Grok](https://x.ai/grok)
-- [Anthropic's Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet)
+- [Google's Gemini 2.5](https://deepmind.google/technologies/gemini/)
 - [Meta's Llama 3.3 70B by Cerebras](https://inference-docs.cerebras.ai/introduction)
-- [Deepseek R1 Distill by Groq Inc](https://console.groq.com/docs/model/deepseek-r1-distill-llama-70b)
 
 ## Built with
 - [Next.js](https://nextjs.org/)
@@ -72,9 +55,9 @@ A minimalistic AI-powered search engine that helps you find information on the i
 
 ### Deploy your own
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzaidmukaddam%2Fscira&env=XAI_API_KEY,OPENAI_API_KEY,GROQ_API_KEY,E2B_API_KEY,ELEVENLABS_API_KEY,TAVILY_API_KEY,EXA_API_KEY,TMDB_API_KEY,YT_ENDPOINT,FIRECRAWL_API_KEY,OPENWEATHER_API_KEY,SANDBOX_TEMPLATE_ID,GOOGLE_MAPS_API_KEY,MAPBOX_ACCESS_TOKEN,TRIPADVISOR_API_KEY,AVIATION_STACK_API_KEY,CRON_SECRET,BLOB_READ_WRITE_TOKEN,NEXT_PUBLIC_MAPBOX_TOKEN,NEXT_PUBLIC_POSTHOG_KEY,NEXT_PUBLIC_POSTHOG_HOST,NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,MEM0_API_KEY,MEM0_ORG_ID,MEM0_PROJECT_ID,SMITHERY_API_KEY&envDescription=API%20keys%20and%20configuration%20required%20for%20Scira%20to%20function%20(including%20SMITHERY_API_KEY))
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzaidmukaddam%2Ffigure&env=XAI_API_KEY,OPENAI_API_KEY,GROQ_API_KEY,E2B_API_KEY,ELEVENLABS_API_KEY,TAVILY_API_KEY,EXA_API_KEY,TMDB_API_KEY,YT_ENDPOINT,FIRECRAWL_API_KEY,OPENWEATHER_API_KEY,SANDBOX_TEMPLATE_ID,GOOGLE_MAPS_API_KEY,MAPBOX_ACCESS_TOKEN,TRIPADVISOR_API_KEY,AVIATION_STACK_API_KEY,CRON_SECRET,BLOB_READ_WRITE_TOKEN,NEXT_PUBLIC_MAPBOX_TOKEN,NEXT_PUBLIC_POSTHOG_KEY,NEXT_PUBLIC_POSTHOG_HOST,NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,MEM0_API_KEY,MEM0_ORG_ID,MEM0_PROJECT_ID,SMITHERY_API_KEY&envDescription=API%20keys%20and%20configuration%20required%20for%20Figure%20to%20function%20(including%20SMITHERY_API_KEY))
 
-## Set Scira as your default search engine
+## Set Figure as your default search engine
 
 1. **Open the Chrome browser settings**:
    - Click on the three vertical dots in the upper right corner of the browser.
@@ -88,19 +71,19 @@ A minimalistic AI-powered search engine that helps you find information on the i
    - Click on "Add" next to "Site search."
 
 4. **Set the search engine name**:
-   - Enter `Scira` in the "Search engine" field.
+   - Enter `Figure` in the "Search engine" field.
 
 5. **Set the search engine URL**:
-   - Enter `https://scira.ai?q=%s` in the "URL with %s in place of query" field.
+   - Enter `https://figure.totob12.com?q=%s` in the "URL with %s in place of query" field.
 
 6. **Set the search engine shortcut**:
-   - Enter `sh` in the "Shortcut" field.
+   - Enter `fi` in the "Shortcut" field.
 
 7. **Set Default**:
    - Click on the three dots next to the search engine you just added.
    - Select "Make default" from the dropdown menu.
 
-After completing these steps, you should be able to use Scira as your default search engine in Chrome.
+After completing these steps, you should be able to use Figure as your default search engine in Chrome.
 
 ### Local development
 
@@ -123,11 +106,11 @@ The application can be run using Docker in two ways:
 1. Create a `.env` file based on `.env.example` with your API keys
 2. Build the Docker image:
    ```bash
-   docker build -t scira.app .
+   docker build -t figure.app .
    ```
 3. Run the container:
    ```bash
-   docker run --env-file .env -p 3000:3000 scira.app
+   docker run --env-file .env -p 3000:3000 figure.app
    ```
 
 The application uses a multi-stage build process to minimize the final image size and implements security best practices. The production image runs on Node.js LTS with Alpine Linux for a minimal footprint.

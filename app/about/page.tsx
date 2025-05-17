@@ -75,7 +75,7 @@ export default function AboutPage() {
                                 Warning
                             </DialogTitle>
                             <DialogDescription className="text-neutral-600 dark:text-neutral-400">
-                                Scira is an AI search engine and is not associated with any cryptocurrency, memecoin, or token activities. Beware of impersonators.
+                                Figure is an AI search engine and is not associated with any cryptocurrency, memecoin, or token activities. Beware of impersonators.
                             </DialogDescription>
                         </DialogHeader>
                     </div>
@@ -105,8 +105,8 @@ export default function AboutPage() {
                         {/* Company Name/Logo */}
                         <motion.div variants={item} className="text-center">
                             <Link href="/" className="inline-flex items-end gap-3 text-5xl font-syne font-bold">
-                                <NextImage src="/scira.png" alt="Scira Logo" className="h-16 w-16 invert dark:invert-0" width={64} height={64} unoptimized quality={100}/>
-                                <span className=''>Scira</span>
+                                <NextImage src="/figure.png" alt="Figure Logo" className="h-16 w-16 invert dark:invert-0" width={64} height={64} unoptimized quality={100}/>
+                                <span className=''>Figure</span>
                             </Link>
                         </motion.div>
 
@@ -135,7 +135,7 @@ export default function AboutPage() {
                                     type="submit"
                                     className="absolute right-2 top-2 h-10 px-4 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-medium hover:opacity-90 transition-opacity"
                                 >
-                                    Ask Scira
+                                    Ask Figure
                                 </button>
                             </div>
                         </motion.form>
@@ -148,7 +148,7 @@ export default function AboutPage() {
 
                         <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-4">
                             <Link
-                                href="https://git.new/scira"
+                                href="https://git.new/figure"
                                 className="group relative inline-flex h-12 items-center gap-2 px-6 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90 transition-all duration-300"
                             >
                                 <GithubLogo weight="fill" className="h-5 w-5" />
@@ -179,7 +179,7 @@ export default function AboutPage() {
                     <div className="text-center space-y-4 mb-16">
                         <h2 className="text-3xl font-bold">RAG & Search Grounding</h2>
                         <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                            Watch how Scira combines RAG and search grounding to deliver accurate, up-to-date answers from reliable sources.
+                            Watch how Figure combines RAG and search grounding to deliver accurate, up-to-date answers from reliable sources.
                         </p>
                     </div>
 
@@ -363,24 +363,12 @@ export default function AboutPage() {
 
                     <div className="flex flex-col sm:flex-row flex-wrap justify-center items-stretch gap-6">
                         <div className="p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 w-full sm:w-[calc(50%-12px)] lg:w-[280px]">
-                            <h3 className="font-semibold">Grok 3.0</h3>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">xAI&apos;s most intelligent model</p>
+                            <h3 className="font-semibold">Gemini 2.5 Flash</h3>
+                            <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Google&apos;s most efficient model</p>
                         </div>
                         <div className="p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 w-full sm:w-[calc(50%-12px)] lg:w-[280px]">
-                            <h3 className="font-semibold">Grok 3.0 Mini</h3>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">xAI&apos;s most efficient model</p>
-                        </div>
-                        <div className="p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 w-full sm:w-[calc(50%-12px)] lg:w-[280px]">
-                            <h3 className="font-semibold">Grok 2.0 Vision</h3>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">xAI&apos;s most advanced vision model</p>
-                        </div>
-                        <div className="p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 w-full sm:w-[calc(50%-12px)] lg:w-[280px]">
-                            <h3 className="font-semibold">OpenAI GPT 4.1 Mini</h3>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">OpenAI&apos;s smartest mini model</p>
-                        </div>
-                        <div className="p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 w-full sm:w-[calc(50%-12px)] lg:w-[280px]">
-                            <h3 className="font-semibold">Qwen QWQ 32B</h3>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Alibaba&apos;s most advanced model</p>
+                            <h3 className="font-semibold">Gemini 2.5 Pro</h3>
+                            <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">Google&apos;s most intelligent model</p>
                         </div>
                     </div>
                 </motion.div>
@@ -397,7 +385,7 @@ export default function AboutPage() {
                     <div className="text-center space-y-3">
                         <h2 className="text-3xl font-bold">Community Recognition</h2>
                         <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                            Join the growing community of developers and researchers using Scira.
+                            Join the growing community of developers and researchers using Figure.
                         </p>
                     </div>
 
@@ -507,7 +495,7 @@ export default function AboutPage() {
                     <div className="text-center space-y-4">
                         <h2 className="text-3xl font-bold">Built For Everyone</h2>
                         <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                            Whether you need quick answers or in-depth research, Scira adapts to your search needs.
+                            Whether you need quick answers or in-depth research, Figure adapts to your search needs.
                         </p>
                     </div>
 
@@ -545,7 +533,7 @@ export default function AboutPage() {
                 <div className="mx-auto max-w-5xl px-4 py-12">
                     <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
                         <div className="flex items-center gap-3">
-                            <img src="/scira.png" alt="Scira Logo" className="h-8 w-8" />
+                            <img src="/figure.png" alt="Figure Logo" className="h-8 w-8" />
                             <p className="text-sm text-neutral-600 dark:text-neutral-400">
                                 © {new Date().getFullYear()} All rights reserved.
                             </p>
@@ -553,15 +541,7 @@ export default function AboutPage() {
                         
                         <div className="flex items-center gap-3">
                             <Link
-                                href="https://x.com/sciraai"
-                                className="rounded-lg p-2 text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800 transition-colors"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <XLogo className="h-5 w-5" />
-                            </Link>
-                            <Link
-                                href="https://git.new/scira"
+                                href="https://git.new/figure"
                                 className="rounded-lg p-2 text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800 transition-colors"
                                 target="_blank"
                                 rel="noopener noreferrer"

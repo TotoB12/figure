@@ -46,7 +46,7 @@ export function InstallPrompt() {
 
             <div className="flex-grow">
               <p className="text-sm font-semibold text-foreground">
-                Install Scira on your device
+                Install Figure on your device
               </p>
               <p className="mt-0.5 text-xs text-muted-foreground inline-flex items-center gap-1">
                 Tap{' '}

@@ -12,12 +12,13 @@ import {
     tool,
     createDataStreamResponse,
     generateObject,
-    NoSuchToolError} from 'ai';
+    NoSuchToolError
+} from 'ai';
 import Exa from 'exa-js';
 import { z } from 'zod';
 import MemoryClient from 'mem0ai';
 import { extremeSearchTool } from '@/ai/extreme-search';
-import { scira } from '@/ai/providers';
+import { figure } from '@/ai/providers';
 
 // Add currency symbol mapping at the top of the file
 const CURRENCY_SYMBOLS = {
@@ -297,9 +298,9 @@ export async function POST(req: Request) {
     return createDataStreamResponse({
         execute: async (dataStream) => {
             const result = streamText({
-                model: scira.languageModel(model),
+                model: figure.languageModel(model),
                 messages: convertToCoreMessages(messages),
-                ...(model !== 'scira-o4-mini' || model !== 'scira-anthropic' ? {
+                ...(model !== 'figure-o4-mini' || model !== 'figure-anthropic' ? {
                     temperature: 0,
                 } : {}),
                 maxSteps: 5,
@@ -311,17 +312,16 @@ export async function POST(req: Request) {
                     delayInMs: 15,
                 }),
                 providerOptions: {
-                    scira: {
-                        ...(model === 'scira-default' ?
+                    figure: {
+                        ...(model === 'figure-default' ?
                             {
-                                reasoningEffort: 'high',
+                                thinkingConfig: {
+                                    thinkingBudget: 10000,
+                                },
                             }
                             : {}
                         ),
-                        ...(model === 'scira-o4-mini' ? {
-                            reasoningEffort: 'medium'
-                        } : {}),
-                        ...(model === 'scira-google' ? {
+                        ...(model === 'figure-google' ? {
                             thinkingConfig: {
                                 thinkingBudget: 10000,
                             },
@@ -331,19 +331,6 @@ export async function POST(req: Request) {
                         thinkingConfig: {
                             thinkingBudget: 10000,
                         },
-                    },
-                    openai: {
-                        ...(model === 'scira-o4-mini' ? {
-                            reasoningEffort: 'medium'
-                        } : {})
-                    },
-                    xai: {
-                        ...(model === 'scira-default' ? {
-                            reasoningEffort: 'high',
-                        } : {}),
-                    },
-                    anthropic: {
-                        thinking: { type: 'enabled', budgetTokens: 12000 },
                     }
                 },
                 tools: {
@@ -582,7 +569,7 @@ plt.show()`
 
                             const pipInstall = await sandbox.process.executeCommand('pip install yfinance');
                             console.log('Pip install:', pipInstall.result);
-                            
+
                             const execution = await sandbox.process.codeRun(code);
                             let message = '';
 
@@ -590,7 +577,7 @@ plt.show()`
                                 message += execution.result;
                             }
 
-                    
+
                             if (execution.artifacts?.stdout) {
                                 message += execution.artifacts.stdout;
                             }
@@ -687,7 +674,7 @@ plt.show()`
                         }),
                         execute: async ({ text, to }: { text: string; to: string }) => {
                             const { object: translation } = await generateObject({
-                                model: scira.languageModel(model),
+                                model: figure.languageModel(model),
                                 system: `You are a helpful assistant that translates text from one language to another.`,
                                 prompt: `Translate the following text to ${to} language: ${text}`,
                                 schema: z.object({
@@ -1143,13 +1130,13 @@ plt.show()`
                             include_summary?: boolean;
                             live_crawl?: 'never' | 'auto' | 'always';
                         }) => {
-                        try {
+                            try {
                                 const exa = new Exa(serverEnv.EXA_API_KEY as string);
-                                
+
                                 console.log(`Retrieving content from ${url} with Exa AI, summary: ${include_summary}, livecrawl: ${live_crawl}`);
-                                
+
                                 const start = Date.now();
-                                
+
                                 const result = await exa.getContents(
                                     [url],
                                     {
@@ -1158,13 +1145,13 @@ plt.show()`
                                         livecrawl: live_crawl
                                     }
                                 );
-                                
+
                                 // Check if there are results
                                 if (!result.results || result.results.length === 0) {
                                     console.error('Exa AI error: No content retrieved');
                                     return { error: 'Failed to retrieve content', results: [] };
                                 }
-                                
+
                                 return {
                                     base_url: url,
                                     results: result.results.map((item) => {
@@ -1201,13 +1188,13 @@ plt.show()`
                                 const geocodingResponse = await fetch(
                                     `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(location)}&count=1&language=en&format=json`
                                 );
-                                
+
                                 const geocodingData = await geocodingResponse.json();
-                                
+
                                 if (!geocodingData.results || geocodingData.results.length === 0) {
                                     throw new Error(`Location '${location}' not found`);
                                 }
-                                
+
                                 const { latitude, longitude, name, country, timezone } = geocodingData.results[0];
                                 console.log('Latitude:', latitude);
                                 console.log('Longitude:', longitude);
@@ -1224,7 +1211,7 @@ plt.show()`
                                         `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=16&appid=${apiKey}`
                                     )
                                 ]);
-                                
+
                                 const [weatherData, airPollutionData, dailyForecastData] = await Promise.all([
                                     weatherResponse.json(),
                                     airPollutionResponse.json(),
@@ -1233,13 +1220,13 @@ plt.show()`
                                         return { list: [] }; // Return empty data if API fails
                                     })
                                 ]);
-                                
+
                                 // Step 3: Fetch air pollution forecast
                                 const airPollutionForecastResponse = await fetch(
                                     `https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
                                 );
                                 const airPollutionForecastData = await airPollutionForecastResponse.json();
-                                
+
                                 // Add geocoding information to the weather data
                                 return {
                                     ...weatherData,
@@ -1295,7 +1282,7 @@ plt.show()`
                             console.log('Execution:', execution.result);
                             console.log('Execution:', execution.artifacts?.stdout);
 
-                            let message = '';                            
+                            let message = '';
 
                             if (execution.result) {
                                 message += execution.result;
@@ -1304,9 +1291,9 @@ plt.show()`
                             if (execution.artifacts?.stdout) {
                                 message += execution.artifacts.stdout;
                             }
-                            
+
                             if (execution.artifacts?.charts) {
-                               console.log('Chart:', execution.artifacts.charts[0]);
+                                console.log('Chart:', execution.artifacts.charts[0]);
                             }
 
                             let chart;
@@ -1952,21 +1939,21 @@ plt.show()`
                             timeRange: z.enum(['day', 'week', 'month', 'year']).describe('Time range for Reddit search.'),
                         }),
                         execute: async ({
-                            query, 
-                            maxResults = 20, 
+                            query,
+                            maxResults = 20,
                             timeRange = 'week',
-                        }: { 
-                            query: string; 
+                        }: {
+                            query: string;
                             maxResults?: number;
                             timeRange?: 'day' | 'week' | 'month' | 'year';
                         }) => {
                             const apiKey = serverEnv.TAVILY_API_KEY;
                             const tvly = tavily({ apiKey });
-                            
+
                             console.log('Reddit search query:', query);
                             console.log('Max results:', maxResults);
                             console.log('Time range:', timeRange);
-                            
+
                             try {
                                 const data = await tvly.search(query, {
                                     maxResults: maxResults,
@@ -1978,15 +1965,15 @@ plt.show()`
                                 });
 
                                 console.log("data", data);
-                                
+
                                 // Process results for better display
                                 const processedResults = data.results.map(result => {
                                     // Extract Reddit post metadata
                                     const isRedditPost = result.url.includes('/comments/');
-                                    const subreddit = isRedditPost ? 
-                                        result.url.match(/reddit\.com\/r\/([^/]+)/)?.[1] || 'unknown' : 
+                                    const subreddit = isRedditPost ?
+                                        result.url.match(/reddit\.com\/r\/([^/]+)/)?.[1] || 'unknown' :
                                         'unknown';
-                                    
+
                                     // Don't attempt to parse comments - treat content as a single snippet
                                     // The Tavily API already returns short content snippets
                                     return {
@@ -2001,7 +1988,7 @@ plt.show()`
                                         comments: result.content ? [result.content] : []
                                     };
                                 });
-                                
+
                                 return {
                                     query,
                                     results: processedResults,
@@ -2033,7 +2020,7 @@ plt.show()`
                     const tool = tools[toolCall.toolName as keyof typeof tools];
 
                     const { object: repairedArgs } = await generateObject({
-                        model: scira.languageModel("scira-default"),
+                        model: figure.languageModel("figure-default"),
                         schema: tool.parameters,
                         prompt: [
                             `The model tried to call the tool "${toolCall.toolName}"` +

@@ -1,5 +1,5 @@
 import { serverEnv } from '@/env/server';
-import { xai } from '@ai-sdk/xai';
+import { google } from "@ai-sdk/google";
 import { tavily } from '@tavily/core';
 import {
     convertToCoreMessages,
@@ -10,9 +10,9 @@ import {
 import Exa from 'exa-js';
 import { z } from 'zod';
 
-const scira = customProvider({
+const figure = customProvider({
     languageModels: {
-        'scira-default': xai("grok-3-beta"),
+        'figure-default': google('gemini-2.5-flash-preview-04-17'),
     }
 })
 
@@ -54,7 +54,7 @@ const deduplicateByDomainAndUrl = <T extends { url: string }>(items: T[]): T[] =
 
 // Define separate system prompts for each group
 const groupSystemPrompts = {
-    web: `You are Scira for Raycast, a powerful AI web search assistant.
+    web: `You are Figure, a powerful AI web search assistant.
 
 Today's Date: ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "short", day: "2-digit", weekday: "short" })}
 
@@ -115,7 +115,7 @@ export async function POST(req: Request) {
     const activeTools = group === 'x' ? ["x_search" as const] : group === 'web' ? ["web_search" as const] : ["web_search" as const, "x_search" as const];
 
     const { text, steps } = await generateText({
-        model: scira.languageModel(model),
+        model: figure.languageModel(model),
         system: systemPrompt,
         maxSteps: 5,
         messages: convertToCoreMessages(messages),
